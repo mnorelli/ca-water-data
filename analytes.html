@@ -4,52 +4,15 @@
     <meta charset='utf-8' />
     <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
+    <link rel="stylesheet" href="css/map.css">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
   </head>
   <body>
 
-  <div id='map'></div>
-  <script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoibW5vcmVsbGkiLCJhIjoiU3BCcTNJQSJ9.4EsgnQLWdR10NXrt7aBYGw'; // https://docs.mapbox.com/help/tutorials/mapbox-gl-js-expressions/
-  var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mnorelli/ck0q67lvd06an1ck787n6l08t', // stylesheet location
-    center: [-119.98030838, 37.11287603], // starting position [lng, lat]
-    zoom: 5.5 // starting zoom
-  });
-
-  map.on('load', function() {
-    map.addLayer({
-      id: 'systempoints',
-      type: 'circle',
-      source: {
-        type: 'vector',
-        url: 'mapbox://mnorelli.4vsnqboo'
-      },
-      'source-layer': 'inventory_map_2018-19_selecte-7444w5',
-        paint: {
-            'circle-radius': ["log2",['number', ['get', 'd_populati']]],
-            'circle-opacity': 0.5,
-            'circle-color': 'rgb(171, 72, 33)'
-          }
-    });
-  });
-
-  </script>
+    <div id='map'></div>
+    <script type="text/javascript" src="js/token.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
 
   </body>
 </html>
